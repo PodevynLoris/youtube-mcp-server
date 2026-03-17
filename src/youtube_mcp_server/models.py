@@ -144,6 +144,7 @@ class TranscriptMatch:
 
 
 def _format_duration(seconds: int) -> str:
+    seconds = int(seconds)
     h, remainder = divmod(seconds, 3600)
     m, s = divmod(remainder, 60)
     if h:

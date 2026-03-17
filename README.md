@@ -29,7 +29,7 @@ Add to your `claude_desktop_config.json`:
   "mcpServers": {
     "youtube": {
       "command": "uvx",
-      "args": ["yt-mcp-server"]
+      "args": ["--from", "yt-mcp-server", "youtube-mcp-server"]
     }
   }
 }
@@ -50,7 +50,7 @@ Add to your Cursor MCP settings:
   "mcpServers": {
     "youtube": {
       "command": "uvx",
-      "args": ["yt-mcp-server"]
+      "args": ["--from", "yt-mcp-server", "youtube-mcp-server"]
     }
   }
 }
@@ -72,19 +72,19 @@ Add to your Cursor MCP settings:
 ## Example Prompts
 
 ```
-"Search YouTube for videos about cold outreach strategies"
+"Find me the best videos on how to scale a B2B SaaS from 0 to $1M ARR"
 → search_videos
 
-"What are the latest videos from @hormozi?"
+"Show me everything @AlexHormozi posted this month"
 → get_channel_videos
 
-"Get me the full transcript of this video: https://youtube.com/watch?v=..."
+"Summarize this interview with Sam Altman: https://youtube.com/watch?v=..."
 → get_transcript
 
-"What does Hormozi say about pricing?"
-→ search_channel_transcripts — searches all his videos, returns passages with timestamps
+"What exactly did @AlexHormozi say about scaling a SaaS? Give me the timestamps"
+→ search_channel_transcripts — searches all videos, returns exact passages with links
 
-"Compare what YC and Hormozi say about product-market fit"
+"Compare how @ycombinator and @AlexHormozi think about product-market fit"
 → search_channel_transcripts on both channels
 ```
 

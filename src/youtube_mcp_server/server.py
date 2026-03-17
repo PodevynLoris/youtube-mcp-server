@@ -142,7 +142,7 @@ def search_channel_transcripts(
     channel: str,
     query: str,
     language: str = "en",
-    max_videos: int = 20,
+    max_videos: int = 10,
 ) -> str:
     """Search for specific content across all videos of a YouTube channel.
     This is the power feature: find what a creator said about any topic.
@@ -151,7 +151,7 @@ def search_channel_transcripts(
         channel: Channel URL or @handle (e.g. "@hormozi")
         query: Text to search for across all transcripts
         language: Preferred language code (default "en")
-        max_videos: Maximum number of recent videos to search (default 20, max 50)
+        max_videos: Maximum number of recent videos to search (default 10, max 50)
     """
     try:
         max_videos = min(max_videos, 50)

@@ -49,7 +49,10 @@ def get_channel_info(channel_url: str) -> Channel:
         "playlist_items": "0:0",
     }
     with yt_dlp.YoutubeDL(opts) as ydl:
-        info = ydl.extract_info(f"{url}/videos", download=False)
+        try:
+            info = ydl.extract_info(f"{url}/videos", download=False)
+        except Exception:
+            info = ydl.extract_info(url, download=False)
 
     return Channel(
         id=info.get("channel_id", info.get("id", "")),
@@ -79,7 +82,10 @@ def get_channel_videos(
         tab = "/videos?view=0&sort=p"
 
     with yt_dlp.YoutubeDL(opts) as ydl:
-        result = ydl.extract_info(f"{url}{tab}", download=False)
+        try:
+            result = ydl.extract_info(f"{url}{tab}", download=False)
+        except Exception:
+            result = ydl.extract_info(url, download=False)
 
     videos = []
     for entry in result.get("entries", []):
