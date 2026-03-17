@@ -1,10 +1,10 @@
 [project]
-name = "youtube-mcp-server"
+name = "yt-mcp-server"
 version = "0.1.0"
 description = "A zero-config MCP server for YouTube — search videos, get transcripts, browse channels, and search within video content. No API keys needed."
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 authors = [
     { name = "Loris Podevyn" }
 ]
@@ -13,7 +13,7 @@ classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3",
     "Topic :: Software Development :: Libraries",
 ]
 dependencies = [
@@ -21,6 +21,11 @@ dependencies = [
     "yt-dlp>=2024.0.0",
     "youtube-transcript-api>=1.0.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/PodevynLoris/youtube-mcp-server"
+Repository = "https://github.com/PodevynLoris/youtube-mcp-server"
+Issues = "https://github.com/PodevynLoris/youtube-mcp-server/issues"
 
 [project.scripts]
 youtube-mcp-server = "youtube_mcp_server.server:main"
