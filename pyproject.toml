@@ -1,0 +1,33 @@
+[project]
+name = "youtube-mcp-server"
+version = "0.1.0"
+description = "A zero-config MCP server for YouTube — search videos, get transcripts, browse channels, and search within video content. No API keys needed."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+authors = [
+    { name = "Loris Podevyn" }
+]
+keywords = ["mcp", "youtube", "ai", "claude", "cursor", "transcript"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+    "fastmcp>=2.0.0",
+    "yt-dlp>=2024.0.0",
+    "youtube-transcript-api>=1.0.0",
+]
+
+[project.scripts]
+youtube-mcp-server = "youtube_mcp_server.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/youtube_mcp_server"]
