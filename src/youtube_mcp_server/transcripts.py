@@ -89,11 +89,13 @@ def search_channel_transcripts(
         url = video["url"]
         title = video.get("title", "")
         try:
-            matches = search_transcript(url, query, language)
+            matches = search_transcript(url, query, language, context_segments=1)
             for match in matches:
                 match.video_title = title
                 match.video_url = url
-            return matches
+                if len(match.text) > 300:
+                    match.text = match.text[:300] + "…"
+            return matches[:3]
         except Exception:
             return []
 
@@ -101,8 +103,10 @@ def search_channel_transcripts(
         futures = {pool.submit(_search_one, v): v for v in video_urls[:max_videos]}
         for future in as_completed(futures):
             all_matches.extend(future.result())
+            if len(all_matches) >= 15:
+                break
 
-    return all_matches
+    return all_matches[:15]
 
 
 def _extract_video_id(url: str) -> str:
