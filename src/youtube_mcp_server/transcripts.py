@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from youtube_transcript_api import YouTubeTranscriptApi
 
@@ -84,7 +85,7 @@ def search_channel_transcripts(
     """
     all_matches = []
 
-    for video in video_urls[:max_videos]:
+    def _search_one(video: dict) -> list[TranscriptMatch]:
         url = video["url"]
         title = video.get("title", "")
         try:
@@ -92,9 +93,14 @@ def search_channel_transcripts(
             for match in matches:
                 match.video_title = title
                 match.video_url = url
-            all_matches.extend(matches)
+            return matches
         except Exception:
-            continue
+            return []
+
+    with ThreadPoolExecutor(max_workers=5) as pool:
+        futures = {pool.submit(_search_one, v): v for v in video_urls[:max_videos]}
+        for future in as_completed(futures):
+            all_matches.extend(future.result())
 
     return all_matches
 
