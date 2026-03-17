@@ -23,9 +23,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/PodevynLoris/youtube-mcp-server"
-Repository = "https://github.com/PodevynLoris/youtube-mcp-server"
-Issues = "https://github.com/PodevynLoris/youtube-mcp-server/issues"
+Homepage = "https://github.com/Anarcyst/youtube-mcp-server"
+Repository = "https://github.com/Anarcyst/youtube-mcp-server"
+Issues = "https://github.com/Anarcyst/youtube-mcp-server/issues"
 
 [project.scripts]
 youtube-mcp-server = "youtube_mcp_server.server:main"

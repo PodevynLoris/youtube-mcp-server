@@ -81,7 +81,7 @@ Add to your Cursor MCP settings:
 "Summarize this interview with Sam Altman: https://youtube.com/watch?v=..."
 → get_transcript
 
-"What exactly did @AlexHormozi say about scaling a SaaS? Give me the timestamps"
+"What exactly did @AlexHormozi say about making offers? Give me the timestamps"
 → search_channel_transcripts — searches all videos, returns exact passages with links
 
 "Compare how @ycombinator and @AlexHormozi think about product-market fit"
@@ -101,6 +101,10 @@ yt-mcp-server --transport streamable-http --port 8000
 - Python 3.10+
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp) (installed automatically)
 - No API keys or authentication required
+
+## Note
+
+Transcript features (`get_transcript`, `search_transcript`, `search_channel_transcripts`) use YouTube's internal API, which may rate-limit after many requests in a short period. Normal usage (a few queries per session) works fine.
 
 ## Acknowledgments
 
