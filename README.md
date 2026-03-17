@@ -1,6 +1,6 @@
 # YouTube MCP Server
 
-[![PyPI version](https://img.shields.io/pypi/v/youtube-mcp-server)](https://pypi.org/project/youtube-mcp-server/)
+[![PyPI version](https://img.shields.io/pypi/v/yt-mcp-server)](https://pypi.org/project/yt-mcp-server/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
@@ -9,13 +9,13 @@ A **zero-config** MCP server for YouTube. Search videos, get transcripts, browse
 ## Quick Start
 
 ```bash
-uvx youtube-mcp-server
+uvx yt-mcp-server
 ```
 
 Or install with pip:
 
 ```bash
-pip install youtube-mcp-server
+pip install yt-mcp-server
 ```
 
 ## Setup
@@ -29,7 +29,7 @@ Add to your `claude_desktop_config.json`:
   "mcpServers": {
     "youtube": {
       "command": "uvx",
-      "args": ["youtube-mcp-server"]
+      "args": ["yt-mcp-server"]
     }
   }
 }
@@ -38,7 +38,7 @@ Add to your `claude_desktop_config.json`:
 ### Claude Code
 
 ```bash
-claude mcp add youtube -- uvx youtube-mcp-server
+claude mcp add youtube -- uvx yt-mcp-server
 ```
 
 ### Cursor
@@ -50,7 +50,7 @@ Add to your Cursor MCP settings:
   "mcpServers": {
     "youtube": {
       "command": "uvx",
-      "args": ["youtube-mcp-server"]
+      "args": ["yt-mcp-server"]
     }
   }
 }
@@ -93,7 +93,7 @@ Add to your Cursor MCP settings:
 Run as a standalone HTTP server:
 
 ```bash
-youtube-mcp-server --transport streamable-http --port 8000
+yt-mcp-server --transport streamable-http --port 8000
 ```
 
 ## Requirements
